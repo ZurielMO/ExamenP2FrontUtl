@@ -85,7 +85,7 @@ export default Gafete
 export const loaderGafete = async ({ params }) => {
   const API = import.meta.env.VITE_API_URL;
 
-  const res = await fetch(`${API}/participante/${params.id}`);
+  const res = await fetch(`https://backend-examenp2.onrender.com/api/listado/participante/${params.id}`);
   const data = await res.json();
 
   return { usuario: data.data };
