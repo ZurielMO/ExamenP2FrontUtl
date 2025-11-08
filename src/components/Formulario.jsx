@@ -35,7 +35,7 @@ const Formulario = () => {
       <Card
         className="shadow-lg p-4"
         style={{
-          width: "60%",
+          width: "90%",
           borderRadius: "18px",
           background: "linear-gradient(135deg, #003d80, #0059b3)",
           color: "white"
@@ -133,7 +133,7 @@ const Formulario = () => {
 
 
           <Row className="justify-content-center">
-            <Col xs={12} md={8} lg={6} className="text-center mt-4">
+            <Col md className="text-center mt-4">
               <Form.Group align="center">
                 <Form.Label>Selecciona tu Avatar</Form.Label>
 
