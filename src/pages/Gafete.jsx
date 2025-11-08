@@ -85,7 +85,13 @@ export default Gafete
 export const loaderGafete = async ({ params }) => {
   const API = import.meta.env.VITE_API_URL;
 
-  const res = await fetch(`https://backend-examenp2.onrender.com/api/listado/participante/${params.id}`);
+  // URL corregida - quita "listado" del path
+  const res = await fetch(`${API}/participante/${params.id}`);
+  
+  if (!res.ok) {
+    throw new Error('No se pudo cargar el gafete');
+  }
+  
   const data = await res.json();
 
   return { usuario: data.data };
