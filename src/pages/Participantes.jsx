@@ -89,14 +89,17 @@ export const loaderParticipantes = async ({ params, request }) => {
   const query = url.searchParams.get("search");
 
   const API = import.meta.env.VITE_API_URL; 
+    console.log('API URL:', API);
+  console.log('Full listado URL:', `${API}/listado`);
 
-  const res1 = await fetch(`https://backend-examenp2.onrender.com/api/listado/listado`);
+  // Asegúrate de que la URL termine con /api y no agregues otra barra
+  const res1 = await fetch(`${API}/listado`);
   const data1 = await res1.json();
 
   let resultadoBusqueda = null;
 
   if (query) {
-    const res2 = await fetch(`https://backend-examenp2.onrender.com/api/listado/listadoBusqueda?q=${query}`);
+    const res2 = await fetch(`${API}/listadoBusqueda?q=${query}`);
     const data2 = await res2.json();
     resultadoBusqueda = data2.data;
   }
