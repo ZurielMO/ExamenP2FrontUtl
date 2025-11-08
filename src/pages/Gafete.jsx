@@ -1,16 +1,19 @@
-import React from 'react'
-import { useLoaderData } from 'react-router-dom'
-import './Gafete.css'
-
+import React, { useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import './Gafete.css';
 
 const Gafete = () => {
-  const {usuario} = useLoaderData();
+  const { usuario } = useLoaderData();
+  const [flipped, setFlipped] = useState(false);
+
+  const handleFlip = () => {
+    setFlipped(!flipped);
+  };
 
   const formatTwitterHandle = (handle) => {
     if (!handle) return '';
     return handle.startsWith('@') ? handle : `@${handle}`;
   };
-
 
   const generateUserId = (nombre, apellidoPaterno) => {
     const base = (nombre + apellidoPaterno).toUpperCase().replace(/\s/g, '');
@@ -18,7 +21,10 @@ const Gafete = () => {
   };
 
   return (
-    <div className="gafete-container">
+    <div
+      className={`gafete-container ${flipped ? 'flipped' : ''}`}
+      onClick={handleFlip}
+    >
       <div className="gafete-inner">
         {/* LADO FRONTAL */}
         <div className="gafete-front">
@@ -37,7 +43,9 @@ const Gafete = () => {
             />
           </div>
 
-          <p className="gafete-instructions">Pasa el cursor para ver el reverso</p>
+          <p className="gafete-instructions">
+            Toca para ver el reverso
+          </p>
         </div>
 
         {/* LADO TRASERO */}
@@ -77,10 +85,11 @@ const Gafete = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Gafete
+export default Gafete;
+
 
 export const loaderGafete = async ({ params }) => {
   const API = import.meta.env.VITE_API_URL;

@@ -16,9 +16,10 @@
     cursor: pointer;
 }
 
-.gafete-container:hover .gafete-inner {
+.gafete-container.flipped .gafete-inner {
     transform: rotateY(180deg);
 }
+
 
 .gafete-front,
 .gafete-back {
