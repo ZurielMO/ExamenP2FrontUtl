@@ -1,0 +1,213 @@
+/* Gafete.css */
+.gafete-container {
+    perspective: 1000px;
+    max-width: 400px;
+    margin: 20px auto;
+    height: 500px;
+}
+
+.gafete-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.gafete-container:hover .gafete-inner {
+    transform: rotateY(180deg);
+}
+
+.gafete-front,
+.gafete-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* FRENTE - Estilo azul profesional */
+.gafete-front {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+}
+
+/* REVERSO - Estilo blanco con acentos azules */
+.gafete-back {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    color: #1e3c72;
+    transform: rotateY(180deg);
+    border: 3px solid #2a5298;
+}
+
+/* Elementos decorativos */
+.gafete-decorative-circle {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    top: -50px;
+    right: -50px;
+}
+
+.gafete-decorative-circle2 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    bottom: -30px;
+    left: -30px;
+}
+
+.gafete-decorative-square {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: rgba(30, 60, 114, 0.05);
+    top: -20px;
+    left: -20px;
+    transform: rotate(45deg);
+}
+
+/* Tipografía y contenido */
+.gafete-nombre {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.gafete-back .gafete-nombre {
+    text-shadow: none;
+    color: #1e3c72;
+}
+
+.gafete-id {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 10px 0;
+    opacity: 0.8;
+}
+
+.gafete-descripcion {
+    font-size: 12px;
+    line-height: 1.4;
+    margin: 15px 0;
+    opacity: 0.9;
+}
+
+.gafete-avatar-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.gafete-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.gafete-back .gafete-avatar {
+    border: 4px solid rgba(30, 60, 114, 0.2);
+}
+
+.gafete-info-section {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.gafete-back .gafete-info-section {
+    background: rgba(30, 60, 114, 0.05);
+    border: 1px solid rgba(30, 60, 114, 0.1);
+}
+
+.gafete-info-item {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gafete-label {
+    font-weight: bold;
+    margin-right: 8px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.gafete-value {
+    font-size: 14px;
+}
+
+.gafete-social {
+    background: rgba(29, 161, 242, 0.2);
+    border-radius: 20px;
+    padding: 8px 15px;
+    display: inline-flex;
+    align-items: center;
+    margin: 5px;
+    font-size: 12px;
+}
+
+.gafete-back .gafete-social {
+    background: rgba(30, 60, 114, 0.1);
+    color: #1e3c72;
+}
+
+.gafete-divider {
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 20px 0;
+    border: none;
+}
+
+.gafete-back .gafete-divider {
+    background: rgba(30, 60, 114, 0.2);
+}
+
+.gafete-logo {
+    font-weight: bold;
+    font-size: 16px;
+    color: #1e3c72;
+    margin-top: 20px;
+}
+
+.gafete-instructions {
+    font-size: 11px;
+    opacity: 0.6;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+
+@media (max-width: 480px) {
+    .gafete-container {
+        max-width: 350px;
+        height: 450px;
+    }
+
+    .gafete-nombre {
+        font-size: 24px;
+    }
+
+    .gafete-avatar {
+        width: 100px;
+        height: 100px;
+    }
+}
