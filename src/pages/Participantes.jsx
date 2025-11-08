@@ -88,20 +88,35 @@ export const loaderParticipantes = async ({ params, request }) => {
   const url = new URL(request.url);
   const query = url.searchParams.get("search");
 
-  const API = import.meta.env.VITE_API_URL; 
-    console.log('API URL:', API);
-  console.log('Full listado URL:', `${API}`);
-
-  // Asegúrate de que la URL termine con /api y no agregues otra barra
-  const res1 = await fetch(`${API}/listado`);
+  const API = import.meta.env.VITE_API_URL;
+  
+  // Debug en producción
+  console.log('Environment:', import.meta.env.MODE);
+  console.log('API URL:', API);
+  console.log('Request URL:', request.url);
+  
+  // URL hardcodeada temporalmente para测试
+  const baseURL = 'https://backend-examenp2.onrender.com/api';
+  
+  const res1 = await fetch(`${baseURL}/listado`);
+  
+  if (!res1.ok) {
+    console.error('Error fetching listado:', res1.status);
+    throw new Error('Failed to fetch participants');
+  }
+  
   const data1 = await res1.json();
 
   let resultadoBusqueda = null;
 
   if (query) {
-    const res2 = await fetch(`${API}/listadoBusqueda?q=${query}`);
-    const data2 = await res2.json();
-    resultadoBusqueda = data2.data;
+    const res2 = await fetch(`${baseURL}/listadoBusqueda?q=${query}`);
+    if (!res2.ok) {
+      console.error('Error fetching search:', res2.status);
+    } else {
+      const data2 = await res2.json();
+      resultadoBusqueda = data2.data;
+    }
   }
 
   return {
