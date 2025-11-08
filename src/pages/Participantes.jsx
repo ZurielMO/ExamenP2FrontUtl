@@ -90,7 +90,7 @@ export const loaderParticipantes = async ({ params, request }) => {
 
   const API = import.meta.env.VITE_API_URL; 
     console.log('API URL:', API);
-  console.log('Full listado URL:', `${API}/listado`);
+  console.log('Full listado URL:', `${API}`);
 
   // Asegúrate de que la URL termine con /api y no agregues otra barra
   const res1 = await fetch(`${API}/listado`);
