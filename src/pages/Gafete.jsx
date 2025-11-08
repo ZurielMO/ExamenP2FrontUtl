@@ -84,15 +84,21 @@ export default Gafete
 
 export const loaderGafete = async ({ params }) => {
   const API = import.meta.env.VITE_API_URL;
-
-  // URL corregida - quita "listado" del path
-  const res = await fetch(`${API}/participante/${params.id}`);
+  
+  console.log('VITE_API_URL:', API);
+  console.log('params.id:', params.id);
+  console.log('Full URL would be:', `${API}/participante/${params.id}`);
+  
+  // URL temporal hardcodeada para测试
+  const correctURL = `https://backend-examenp2.onrender.com/api/participante/${params.id}`;
+  console.log('Correct URL:', correctURL);
+  
+  const res = await fetch(correctURL);
   
   if (!res.ok) {
     throw new Error('No se pudo cargar el gafete');
   }
   
   const data = await res.json();
-
   return { usuario: data.data };
 };
