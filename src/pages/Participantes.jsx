@@ -28,7 +28,6 @@ const Participantes = () => {
 
       <hr />
 
-      {/* Grid de tarjetas */}
       <Row xs={1} sm={2} md={3} lg={4} className="g-4">
 
         {lista.length > 0 ? (
@@ -90,12 +89,11 @@ export const loaderParticipantes = async ({ params, request }) => {
 
   const API = import.meta.env.VITE_API_URL;
   
-  // Debug en producción
+
   console.log('Environment:', import.meta.env.MODE);
   console.log('API URL:', API);
   console.log('Request URL:', request.url);
   
-  // URL hardcodeada temporalmente para测试
   const baseURL = 'https://backend-examenp2.onrender.com/api';
   
   const res1 = await fetch(`${baseURL}/listado`);

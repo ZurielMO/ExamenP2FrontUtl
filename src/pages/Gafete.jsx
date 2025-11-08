@@ -11,7 +11,7 @@ const Gafete = () => {
     return handle.startsWith('@') ? handle : `@${handle}`;
   };
 
-  // Generar ID único basado en el nombre y apellido paterno
+
   const generateUserId = (nombre, apellidoPaterno) => {
     const base = (nombre + apellidoPaterno).toUpperCase().replace(/\s/g, '');
     return base.slice(0, 12) || 'USERID123456';
@@ -89,7 +89,7 @@ export const loaderGafete = async ({ params }) => {
   console.log('params.id:', params.id);
   console.log('Full URL would be:', `${API}/participante/${params.id}`);
   
-  // URL temporal hardcodeada para测试
+  
   const correctURL = `https://backend-examenp2.onrender.com/api/participante/${params.id}`;
   console.log('Correct URL:', correctURL);
   

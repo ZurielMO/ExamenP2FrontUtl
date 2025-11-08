@@ -7,11 +7,11 @@ const Home = () => {
 
   return (
     <div className="container-fluid vh-100">
-      {/* Header con logo UTL */}
+
       <header className="row bg-light py-3 shadow-sm">
         <div className="col-12">
           <div className="d-flex align-items-center">
-            {/* Logo UTL - reemplaza con tu imagen real */}
+
             <img 
               src="https://www.kindpng.com/picc/m/18-181377_utl-logo-de-la-universidad-tecnologica-de-leon.png"
               alt="Universidad Tecnológica Linares"
@@ -48,7 +48,6 @@ const Home = () => {
         </div>
 
         <div className="col-12 col-lg-6 p-0">
-          {/* Imagen del congreso - reemplaza con tu imagen real */}
           <img 
             src="https://carreras.uleam.edu.ec/chone-technology-week/wp-content/uploads/sites/92/2024/05/congresoooo-1024x836.png" // Cambia por la ruta correcta de tu imagen
             alt="Congreso de Tecnologías de la Información UTL"
